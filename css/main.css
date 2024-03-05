@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vh + 1vw);
+  --transition: 2s cubic-bezier(0.05, 0.5, 0, 1);
+}
+
+@font-face {
+  font-family: stengazeta-3d;
+  src: url(/fonts/Stengazeta-Regular_5.woff2);
+  font-weight: 1000;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: stengazeta-3d;
+}
+
+.layers {
+  perspective: 1500px;
+  overflow: hidden;
+}
+
+.layers__container {
+  height: 100vh;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+  will-change: transform;
+  transition: transform var(--transition);
+}
+
+.layers__item {
+  position: absolute;
+  inset: -5vw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer-1 {
+  transform: translateZ(-80px) scale(1.06);
+}
+.layer-2 {
+  transform: translateZ(80px) scale(0.8);
+}
+.layer-3 {
+  transform: translateZ(200px);
+}
+
+.hero-content {
+  font-size: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: calc(var(--index) * 2.5);
+}
+
+.hero-content span {
+  display: block;
+}
+.hero-content__p {
+  text-transform: none;
+  font-size: 15px;
+}
+
+.button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: calc(var(--index) * 0.7);
+  letter-spacing: -0.02vw;
+  padding: calc(var(--index) * 0.7) calc(var(--index) * 1.25);
+  background-color: transparent;
+  color: #fff;
+  border-radius: 10em;
+  border: rgb(255 255 255 / 0.4) 3px solid;
+  outline: none;
+  cursor: pointer;
+}
+
+.audio-player {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* как-то по другому делается  */
+  justify-content: center;
+}
